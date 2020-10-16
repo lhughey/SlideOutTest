@@ -61,7 +61,7 @@
                                                 FontAttributes="Bold"
                                                 FontSize="10"
                                                 HorizontalOptions="CenterAndExpand"
-                                                Text="Option 3"
+                                                Text="Option 2"
                                                 TextColor="White"
                                                 VerticalOptions="Center">
                                             </Label>
@@ -78,7 +78,7 @@
                                                 FontAttributes="Bold"
                                                 FontSize="10"
                                                 HorizontalOptions="CenterAndExpand"
-                                                Text="Option 2"
+                                                Text="Option 1"
                                                 TextColor="White"
                                                 VerticalOptions="Center">
                                             </Label>
