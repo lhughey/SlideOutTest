@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:slideOutTest="clr-namespace:SlideOutTest;assembly=SlideOutTest"
+             x:Class="SlideOutTest.MainPage"
+             x:Name="Page">
+
+    <ContentPage.BindingContext>
+        <slideOutTest:MainPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+        <Label FontSize="16" Padding="30,24,30,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Learn more at "/>
+                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <ListView
+            RowHeight="100">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>mono</x:String>
+                    <x:String>monodroid</x:String>
+                    <x:String>monotouch</x:String>
+                    <x:String>monorail</x:String>
+                    <x:String>monodevelop</x:String>
+                    <x:String>monotone</x:String>
+                    <x:String>monopoly</x:String>
+                    <x:String>monomodal</x:String>
+                    <x:String>mononucleosis</x:String>
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <SwipeView>
+                            <Grid>
+                                <Label Text="{Binding .}" Margin="20,0,13,0" VerticalOptions="Center"/>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.AlertCommand, Source={x:Reference Page}}"/>
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Reveal">
+                                    <SwipeItemView WidthRequest="80">
+                                        <Grid BackgroundColor="#5591BB" HorizontalOptions="FillAndExpand"
+                                              VerticalOptions="FillAndExpand">
+                                            <Label
+                                                Margin="0,55,0,0"
+                                                FontAttributes="Bold"
+                                                FontSize="10"
+                                                HorizontalOptions="CenterAndExpand"
+                                                Text="Option 3"
+                                                TextColor="White"
+                                                VerticalOptions="Center">
+                                            </Label>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.AlertCommand, Source={x:Reference Page}}"/>
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </SwipeItemView>
+                                    <SwipeItemView WidthRequest="80">
+                                        <Grid BackgroundColor="Red" HorizontalOptions="FillAndExpand"
+                                              VerticalOptions="FillAndExpand">
+                                            <Label
+                                                Margin="0,55,0,0"
+                                                FontAttributes="Bold"
+                                                FontSize="10"
+                                                HorizontalOptions="CenterAndExpand"
+                                                Text="Option 2"
+                                                TextColor="White"
+                                                VerticalOptions="Center">
+                                            </Label>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.FavoritePatientCommand, Source={x:Reference Page}}"/>
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </SwipeItemView>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                        </SwipeView>
+                        
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
