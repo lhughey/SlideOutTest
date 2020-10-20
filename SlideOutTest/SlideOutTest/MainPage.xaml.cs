@@ -23,5 +23,18 @@ namespace SlideOutTest
 
             //((MainPageViewModel)BindingContext).AlertCommand.Execute(0);
         }
+
+        private void SwipeView_OnSwipeStarted(object sender, SwipeStartedEventArgs e)
+        {
+            
+            var x = ((SwipeView) sender);
+            var y = e.SwipeDirection;
+        }
+
+        private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        {
+            var x = ((SwipeView) sender);
+            var y = e;
+        }
     }
 }

@@ -27,7 +27,11 @@
         </Label>
 
         <ListView
-            RowHeight="100">
+            RowHeight="100"
+             SeparatorColor="Gray"
+            x:Name="listView"
+            
+            >
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>mono</x:String>
@@ -44,7 +48,10 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <SwipeView>
+                        <SwipeView SwipeStarted="SwipeView_OnSwipeStarted">
+                            <SwipeView.GestureRecognizers >
+                                <TapGestureRecognizer  Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1" />
+                            </SwipeView.GestureRecognizers>
                             <Grid>
                                 <Label Text="{Binding .}" Margin="20,0,13,0" VerticalOptions="Center"/>
                                 <Grid.GestureRecognizers>
